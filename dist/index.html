@@ -1,13 +1,60 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/libraries/normalize.css">
-    <link rel="stylesheet" href="assets/css/style.min.css">
-    <title>HomePage</title>
-</head><body>
-    <h1>HomePage</h1>
+    <!DOCTYPE html>
+    <html lang="ru">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;800&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="stylesheet" href="assets/libraries/normalize.css" />
+        <link rel="stylesheet" href="assets/libraries/bootstrap-grid.min.css" />
+        <link rel="stylesheet" href="assets/css/style.min.css" />
+        <title>HomePage</title>
+      </head>
+    </html>
+<body>
+    <section class="main">
+      <div class="container">
+        <div class="row justify-content-end">
+          <div class="col-xl-9">
+            <header class="main__header">
+              <nav class="main__menu">
+                <a href="#" class="main__menu_link"><span></span>О нас</a>
+                <a href="#" class="main__menu_link"><span></span>Преимущества</a>
+                <a href="#" class="main__menu_link"><span></span>Продукция</a>
+                <a href="#" class="main__menu_link"><span></span>Контакты</a>
+              </nav>
+              <div class="burger"><span></span></div>
+    
+              <a href="tel:+79500245116" class="phone"
+                ><div class="phone__img">
+                  <img src="assets/img/icons/phone__main.png" alt="phone" />
+                </div>
+                <span class="phone__number">+7 (950)-024-51-16</span></a
+              >
+            </header>
+          </div>
+        </div>
+    
+        <div class="row main__content">
+          <div class="col-12">
+            <h1 class="main__title">
+              Современные технологии <br />
+              в сельском хозяйстве
+            </h1>
+            <p class="main__subtitle">
+              Более 25 лет мы успешно занимаемся выращиванием <br />
+              сельскохозяйсвтенной продукции <br />
+              на алтайской земле
+            </p>
+            <button class="gr__button gr__button_main">
+              Подробнее
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 <script src="assets/js/main.min.js"></script>
 </body>
 </html>

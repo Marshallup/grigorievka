@@ -1,0 +1,15 @@
+body {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+h1,
+h2 {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+@import "vars";
+@import "mixins";
+@import "elements/buttons";
+@import "blocks/main";
