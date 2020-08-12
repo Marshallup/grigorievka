@@ -19,7 +19,19 @@
     justify-content: space-between;
     align-items: center;
 
+    .main__logo {
+      width: 59px;
+      height: 92px;
+
+      img {
+        width: 100%;
+      }
+    }
+
     .main__menu {
+      @media screen and (min-width: 1199px) {
+        margin-left: 105px;
+      }
       &_link {
         margin: 0 12px;
         padding: 8px;
@@ -35,7 +47,7 @@
         font-weight: 600;
 
         &:hover {
-          color: $main__text-color;
+          color: $mainTextColor;
           border-top: 2px solid #f7d8b6;
           border-bottom: 2px solid #a4651f;
           background-image: linear-gradient(#f7d8b6, #a4651f),
@@ -63,7 +75,7 @@
       }
       &__number {
         font-weight: 600;
-        color: $main__text-color;
+        color: $mainTextColor;
       }
     }
   }
@@ -73,7 +85,7 @@
   .main__title,
   .main__subtitle,
   .gr__button_main {
-    color: $main__text-color;
+    color: $mainTextColor;
   }
 
   .main__title {
@@ -95,51 +107,54 @@
 @media screen and (max-width: 991px) {
   .main {
     height: 600px;
-    @media screen and (max-width: 767px) {
-      .main__menu {
-        position: absolute;
-        transition: all 1s ease;
-        height: 100vh;
-        top: -100vh;
-      }
-      .burger {
-        display: flex;
-        align-items: center;
-        height: 30px;
-        position: relative;
+    // @media screen and (max-width: 767px) {
+    .main__menu {
+      position: absolute;
+      transition: all 1s ease;
+      height: 100vh;
+      top: -100vh;
+    }
+    .burger {
+      display: flex;
+      align-items: center;
+      height: 30px;
+      position: relative;
 
-        span {
+      span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: #fff;
+
+        &::after,
+        &::before {
+          content: "";
+          position: absolute;
           display: block;
           width: 25px;
           height: 2px;
           background-color: #fff;
+        }
 
-          &::after,
-          &::before {
-            content: "";
-            position: absolute;
-            display: block;
-            width: 25px;
-            height: 2px;
-            background-color: #fff;
-          }
-
-          &::after {
-            top: 22px;
-          }
-          &::before {
-            top: 6px;
-          }
+        &::after {
+          top: 22px;
+        }
+        &::before {
+          top: 6px;
         }
       }
-      .main__content {
-        margin-top: 100px !important;
-      }
-      .phone {
-        margin: 0 auto;
-        order: -1;
-      }
     }
+    .main__content {
+      margin-top: 100px !important;
+    }
+    .main__logo {
+      order: -3;
+    }
+    .phone {
+      // margin: 0 auto;
+      order: -2;
+    }
+    // }
 
     &__menu_link {
       margin: 0 5px !important;

@@ -1,0 +1,29 @@
+.choose {
+  padding-bottom: 130px;
+  &__content_block {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .choose__number {
+      margin-right: 25px;
+      opacity: 0.5;
+      font-weight: 800;
+      font-size: 100px;
+      color: #c7b393;
+    }
+    .choose__number_title {
+      display: block;
+      font-weight: 800;
+      color: $baseTextColor;
+    }
+
+    .choose__number_text {
+      margin-top: 7px;
+      width: 316px;
+      line-height: 20px;
+      color: $baseTextColor;
+    }
+  }
+}

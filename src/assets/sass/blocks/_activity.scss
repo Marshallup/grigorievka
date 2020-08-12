@@ -1,0 +1,53 @@
+.activity {
+  position: relative;
+  background: url("/assets/img/section__activity.jpg") center center/cover
+    no-repeat;
+  padding-bottom: $sectionIndent;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 40px;
+    color: #ede1ce;
+  }
+
+  &__subtitle {
+    text-align: center;
+    font-weight: 600;
+    font-size: 26px;
+    color: #ede1ce;
+  }
+
+  &__wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__block {
+    margin: 100px 30px 100px 30px;
+  }
+
+  &__block_img {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__block_title {
+    margin-top: 6px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ede1ce;
+  }
+}

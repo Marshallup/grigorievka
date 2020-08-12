@@ -1,15 +1,11 @@
-body {
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-}
-h1,
-h2 {
-  margin: 0;
-}
-a {
-  text-decoration: none;
-}
 @import "vars";
 @import "mixins";
 @import "elements/buttons";
+@import "elements/general";
 @import "blocks/main";
+@import "blocks/about";
+@import "blocks/chooseUs";
+@import "blocks/activity";
+@import "blocks/products";
+@import "blocks/person";
+@import "blocks/numbers";

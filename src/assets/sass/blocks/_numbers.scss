@@ -1,0 +1,56 @@
+.numbers {
+  background-color: #eaddc7;
+  padding-top: 0;
+  &__wheat {
+    width: 271.1px;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    margin-top: 120px;
+  }
+
+  &__wrap {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    &_numeric {
+      font-weight: 800;
+      font-size: 100px;
+      color: #c7b393;
+    }
+
+    &_postfix {
+      font-weight: 600;
+      font-size: 20px;
+      color: #c7b393;
+    }
+
+    &_text {
+      text-align: center;
+      font-weight: 600;
+      font-size: 17px;
+      color: $baseTextColor;
+    }
+  }
+
+  @media screen and (max-width: 1199px) {
+    &__wrap_wheat {
+      display: none;
+    }
+
+    &__wrap {
+      justify-content: center;
+      flex-wrap: wrap;
+
+      &_block {
+        margin: 0 50px;
+        &:first-child {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
