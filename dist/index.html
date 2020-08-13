@@ -231,6 +231,81 @@
       <div class="container">
         <div class="row">
           <div class="col-12 gr__title">Продукция</div>
+          <div class="slider">
+            <div class="slider__item">
+              <div class="slider__item_block">
+                <div class="slider__item_leftSide">
+                  <h3 class="slider__item_title">Подсолнечник</h3>
+                  <div class="slider__item_descr">
+                    <div class="slider__item_info">
+                      <div class="slider__item_info_title">Гибрид:</div>
+                      <ul class="slider__item_info_list">
+                        <li>Родар</li>
+                        <li>Пионер</li>
+                      </ul>
+                      <div class="slider__item_info_title">Сорта:</div>
+                      <ul class="slider__item_info_list">
+                        <li>Крупноплодный</li>
+                        <li>Алтай</li>
+                        <li>Посейдон</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slider__item_rightSide">
+                  <div class="slider__item_img">
+                    <img
+                      src="assets/img/icons/slider/sunflower.png"
+                      alt="buckwheat"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider__item">
+              <div class="slider__item_block">
+                <div class="slider__item_leftSide">
+                  <h3 class="slider__item_title">Пшеница</h3>
+                  <div class="slider__item_descr">
+                    <div class="slider__item_info">
+                      <div class="slider__item_info_title">Сорта:</div>
+                      <ul class="slider__item_info_list">
+                        <li>Табольская степная</li>
+                        <li>Степная волна</li>
+                        <li>Сибирская 12</li>
+                        <li>Караван</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slider__item_rightSide">
+                  <div class="slider__item_img">
+                    <img src="assets/img/icons/slider/wheat.png" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider__item">
+              <div class="slider__item_block">
+                <div class="slider__item_leftSide">
+                  <h3 class="slider__item_title">Гречиха</h3>
+                  <div class="slider__item_descr">
+                    <div class="slider__item_info">
+                      <div class="slider__item_info_title">Сорт:</div>
+                      <ul class="slider__item_info_list">
+                        <li>Инзерская</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slider__item_rightSide">
+                  <div class="slider__item_img">
+                    <img src="assets/img/icons/slider/buckwheat.png" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -258,8 +333,8 @@
       </div>
     </section>
     <section class="gr__section numbers">
-      <div class="container">
-        <div class="row">
+      <div class="container numbers__container">
+        <div class="row no-gutters">
           <div class="col-3 numbers__wrap_wheat">
             <div class="numbers__wheat">
               <img src="assets/img/wheat.png" alt="wheat" />
@@ -283,13 +358,137 @@
             </div>
           </div>
           <div class="col-3 numbers__wrap_wheat">
-            <div class="numbers__wheat">
-              <img src="assets/img/wheat.png" alt="wheat" />
+            <div class="numbers__wheat numbers__wheat_right">
+              <img class="wheat__right" src="assets/img/wheat.png" alt="wheat" />
             </div>
           </div>
         </div>
       </div>
     </section>
+    <section class="gr__section forms">
+      <div class="container">
+        <div class="row no-gutters align-items-center">
+          <div class="col-lg-6">
+            <div class="contacts__block_left">
+              <h2 class="contacts__left_title">Контакты</h2>
+              <div class="contacts__left_wrap">
+                <div class="contacts__info">
+                  <div class="contacts__info_title">Адрес:</div>
+                  <div class="contacts__info_text">
+                    Алтайский край, <br />
+                    Табунский район, п.Канны
+                  </div>
+                </div>
+                <div class="contacts__info">
+                  <div class="contacts__info_title">Телефон:</div>
+                  <div class="contacts__info_text">
+                    <a href="tel:+79237494167" class="info__phone"
+                      >+7 (923) 749-41-67</a
+                    >
+                    <br />
+                    <a href="tel:+79059884027" class="info__phone"
+                      >+7 (905) 988-40-27</a
+                    >
+                  </div>
+                </div>
+                <div class="contacts__info">
+                  <div class="contacts__info_title">Почта:</div>
+                  <div class="contacts__info_text">
+                    <a href="mailto:spk.grogorevka@mail.ru"
+                      >spk.grogorevka@mail.ru</a
+                    >
+                    <br />
+                    <a href="mailto:gaan.79@mail.ru">gaan.79@mail.ru</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-lg-6">
+            <div class="contacts__block_right">
+              <div class="contacts__img">
+                <img src="assets/img/bag.png" alt="bag" />
+              </div>
+              <h2 class="gr__title contacts__right_title">Есть вопросы?</h2>
+              <div class="contacts__right_subtitle">
+                Мы с удовольствием ответим <br />
+                на любой ваш вопрос
+              </div>
+              <form name="call Back" class="contacts__form" method="POST">
+                <input name="check" value="Верхняя форма" type="hidden" />
+                <input
+                  class="contacts__form_name"
+                  name="Имя"
+                  type="text"
+                  placeholder="Ваше имя"
+                />
+                <input
+                  class="contacts__form_phone"
+                  name="Телефон"
+                  type="text"
+                  placeholder="Ваш номер телефона"
+                />
+                <input
+                  class="contacts__form_email"
+                  name="Количество"
+                  type="text"
+                  placeholder="Ваш  e-mail"
+                />
+                <textarea
+                  name="message"
+                  placeholder="Введите сообщение"
+                  class="contacts__form_message"
+                ></textarea>
+              </form>
+              <div class="contacts__button_wrap">
+                <button class="contacts__right_button gr__button">
+                  Задать вопрос
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="footer">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-lg-2">
+            <div class="footer__logo_wrap">
+              <div class="footer__logo">
+                <img src="assets/img/icons/logo.png" alt="logo" />
+              </div>
+              <div class="footer__copyright">
+                2020 © Григорьевка <br />
+                Все права защищены <br />
+                Публичная оферта
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <nav class="footer__menu">
+              <a href="#" class="footer__menu_link"><span></span>О нас</a>
+              <a href="#" class="footer__menu_link"><span></span>Преимущества</a>
+              <a href="#" class="footer__menu_link"><span></span>Продукция</a>
+              <a href="#" class="footer__menu_link"><span></span>Контакты</a>
+            </nav>
+          </div>
+          <div class="col-lg-2">
+            <a href="tel:+79500245116" class="phone footer__phone"
+              ><div class="phone__img footer__phone_img">
+                <img src="assets/img/icons/phone__main.png" alt="phone" />
+              </div>
+              <span class="phone__number footer__phone_number"
+                >+7 (950)-024-51-16</span
+              ></a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+<script src="assets/libraries/jquery.min.js"></script>
+<script src="assets/libraries/slick.min.js"></script>
 <script src="assets/js/main.min.js"></script>
 </body>
 </html>
