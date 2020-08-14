@@ -71,12 +71,9 @@
     &__item {
       outline: none;
 
-      &_rightSide {
-        position: relative;
-      }
-
       &_block {
         margin: 0 auto;
+        position: relative;
         width: 300px;
         height: 315px;
         background: #ede1ce;
@@ -119,8 +116,8 @@
 
       &_img {
         position: absolute;
+        right: 10px;
         bottom: 10px;
-        left: -17px;
         width: 101px;
 
         img {
@@ -131,10 +128,6 @@
       @media screen and (max-width: 991px) {
         &_block {
           width: 271px;
-        }
-
-        &_img {
-          left: -50px;
         }
       }
     }

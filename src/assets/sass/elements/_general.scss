@@ -15,6 +15,10 @@ a {
 .gr__section {
   padding-top: $sectionIndent;
   background-color: $baseBg;
+
+  @media screen and (max-width: 500px) {
+    padding-top: $sectionIndentMobile;
+  }
 }
 .gr__title {
   text-align: center;

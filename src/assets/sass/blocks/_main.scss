@@ -91,14 +91,38 @@
 @media screen and (max-width: 991px) {
   .main {
     height: 600px;
-    // @media screen and (max-width: 767px) {
+
     .main__menu {
-      position: absolute;
+      position: fixed;
+      z-index: 100;
       transition: all 1s ease;
+      width: 100vw;
       height: 100vh;
       top: -100vh;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: top 0.5s ease;
+      background-color: green;
+
+      &_link {
+        margin: 10px 0 !important;
+      }
+    }
+
+    .main__menu-active {
+      top: 0;
+      // background-color: green;
+      // z-index: 100;
+      // display: flex;
+      // flex-direction: column;
+      // align-items: center;
+      // justify-content: center;
     }
     .burger {
+      z-index: 101;
       display: flex;
       align-items: center;
       height: 30px;
@@ -109,23 +133,59 @@
         width: 25px;
         height: 2px;
         background-color: #fff;
+        transition: all 0.5s ease;
 
-        &::after,
-        &::before {
-          content: "";
-          position: absolute;
-          display: block;
-          width: 25px;
-          height: 2px;
-          background-color: #fff;
-        }
+        // &::after,
+        // &::before {
+        //   content: "";
+        //   position: absolute;
+        //   display: block;
+        //   width: 25px;
+        //   height: 2px;
+        //   background-color: #fff;
+        // }
 
-        &::after {
-          top: 22px;
-        }
-        &::before {
-          top: 6px;
-        }
+        // &::after {
+        //   top: 22px;
+        // }
+        // &::before {
+        //   top: 6px;
+        // }
+      }
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 25px;
+        height: 2px;
+        transform: rotate(0);
+        background-color: #fff;
+        transition: all 0.5s ease;
+      }
+
+      &::after {
+        top: 22px;
+      }
+      &::before {
+        top: 6px;
+      }
+    }
+
+    .burger-active {
+      span {
+        position: relative;
+        transform: scale(0);
+      }
+
+      &::after {
+        top: 12px;
+        transform: rotate(-45deg);
+      }
+
+      &::before {
+        top: 12px;
+        transform: rotate(45deg);
       }
     }
     .main__content {
