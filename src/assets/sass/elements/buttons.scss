@@ -6,6 +6,10 @@
   background: linear-gradient(180deg, #f7d8b6 0%, #a4651f 100%);
   font-weight: 600;
   color: $mainTextColor;
+
+  a {
+    color: $mainTextColor;
+  }
 }
 .contacts__right_button {
   margin-top: 27px;

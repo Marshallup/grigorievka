@@ -12,6 +12,11 @@ a {
   text-decoration: none;
 }
 
+.no-scroll {
+  position: relative;
+  overflow: hidden;
+}
+
 .gr__section {
   padding-top: $sectionIndent;
   background-color: $baseBg;
@@ -35,3 +40,53 @@ a {
   text-align: center;
   color: $baseTextColor;
 }
+
+.body_hide {
+  opacity: 0;
+  transition: 1s opacity ease-in-out;
+}
+
+.body_visible {
+  opacity: 1 !important;
+}
+
+// .preloader__wrap {
+//   position: fixed;
+//   z-index: 1000;
+//   width: 100vw;
+//   height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background-color: white;
+
+//   .preloader {
+//     position: relative;
+//     width: 100px;
+//     height: 115px;
+
+//     img {
+//       position: absolute;
+//     }
+
+//     &__img {
+//       &-earth {
+//         left: 50%;
+//         bottom: 21px;
+//         transform: translateX(-50%);
+//       }
+
+//       &-flower-leg {
+//         top: 50%;
+//         left: 50%;
+//         transform: translate(-50%, -50%);
+//       }
+
+//       &-flower {
+//         top: -10px;
+//         left: 50%;
+//         transform: translateX(-50%);
+//       }
+//     }
+//   }
+// }

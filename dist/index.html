@@ -10,10 +10,27 @@
         <link rel="stylesheet" href="assets/libraries/normalize.css" />
         <link rel="stylesheet" href="assets/libraries/bootstrap-grid.min.css" />
         <link rel="stylesheet" href="assets/css/style.min.css" />
+        <noscript>
+          <style>
+            .body_hide {
+              opacity: 1 !important;
+            }
+          </style>
+        </noscript>
         <title>HomePage</title>
       </head>
     </html>
-<body>
+<body class="body_hide">
+    <!-- <div class="preloader__wrap">
+        <div class="preloader">
+          <img class="preloader__img-earth" src="assets/img/icons/preloader/earth.svg" alt="земля" />
+          <img class="preloader__img-flower-leg"
+            src="assets/img/icons/preloader/flower-leg.svg"
+            alt="стержень цветка"
+          />
+          <img class="preloader__img-flower" src="assets/img/icons/preloader/flower.svg" alt="цветок" />
+        </div>
+    </div> -->
     <section class="main">
       <div class="container main__container">
         <div class="row justify-content-space-between">
@@ -24,9 +41,15 @@
               </div>
               <nav class="main__menu">
                 <a href="#about" class="main__menu_link"><span></span>О нас</a>
-                <a href="#" class="main__menu_link"><span></span>Преимущества</a>
-                <a href="#" class="main__menu_link"><span></span>Продукция</a>
-                <a href="#" class="main__menu_link"><span></span>Контакты</a>
+                <a href="#choose" class="main__menu_link"
+                  ><span></span>Преимущества</a
+                >
+                <a href="#products" class="main__menu_link"
+                  ><span></span>Продукция</a
+                >
+                <a href="#contacts" class="main__menu_link"
+                  ><span></span>Контакты</a
+                >
               </nav>
               <div class="burger"><span></span></div>
     
@@ -52,7 +75,7 @@
               на алтайской земле
             </p>
             <button class="gr__button gr__button_main">
-              Подробнее
+              <a href="#about">Подробнее</a>
             </button>
           </div>
         </div>
@@ -105,7 +128,7 @@
         </div>
       </div>
     </section>
-    <section class="choose gr__section">
+    <section id="choose" class="choose gr__section">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -227,7 +250,7 @@
         </div>
       </div>
     </section>
-    <section class="products gr__section">
+    <section id="products" class="products gr__section">
       <div class="container">
         <h2 class="gr__title">Продукция</h2>
         <div class="slider">
@@ -340,12 +363,12 @@
     <section class="person gr__section">
       <div class="container">
         <div class="row">
-          <div class="col-xl-5">
+          <div class="col-lg-5">
             <div class="person__img">
               <img src="assets/img/photo.png" alt="photo" />
             </div>
           </div>
-          <div class="col-xl-7 person__text_block">
+          <div class="col-lg-7 person__text_block">
             <div class="person__block">
               <div class="person__post">Председатель СПК “Григорьевка”</div>
               <div class="person__name">Гаан Иван Андреевич</div>
@@ -394,7 +417,7 @@
       </div>
     </section>
     <section class="gr__section forms">
-      <div class="container">
+      <div id="contacts" class="container">
         <div class="row no-gutters align-items-center">
           <div class="col-md-6">
             <div class="contacts__block_left">
@@ -496,10 +519,16 @@
           </div>
           <div class="col-lg-8">
             <nav class="footer__menu">
-              <a href="#" class="footer__menu_link"><span></span>О нас</a>
-              <a href="#" class="footer__menu_link"><span></span>Преимущества</a>
-              <a href="#" class="footer__menu_link"><span></span>Продукция</a>
-              <a href="#" class="footer__menu_link"><span></span>Контакты</a>
+              <a href="#about" class="footer__menu_link"><span></span>О нас</a>
+              <a href="#choose" class="footer__menu_link"
+                ><span></span>Преимущества</a
+              >
+              <a href="#products" class="footer__menu_link"
+                ><span></span>Продукция</a
+              >
+              <a href="#contacts" class="footer__menu_link"
+                ><span></span>Контакты</a
+              >
             </nav>
           </div>
           <div class="col-lg-2">

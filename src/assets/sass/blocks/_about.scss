@@ -33,10 +33,15 @@
       display: flex;
       align-items: center;
 
+      &:first-child::before {
+        margin-right: 24px;
+      }
+
       &::before {
         counter-increment: count;
         content: "0" counters(count, ".") "";
         margin-right: 18px;
+        // width: 31px;
         font-size: 25px;
         font-weight: 800;
         color: #ddc8a5;

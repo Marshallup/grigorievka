@@ -11,6 +11,10 @@
     color: #fff5e6;
 }
 
+.gr__button a {
+    color: #fff5e6;
+}
+
 .contacts__right_button {
     margin-top: 27px;
 }
@@ -30,6 +34,11 @@ p {
 
 a {
     text-decoration: none;
+}
+
+.no-scroll {
+    position: relative;
+    overflow: hidden;
 }
 
 .gr__section {
@@ -58,6 +67,17 @@ a {
     letter-spacing: 0.04em;
     text-align: center;
     color: #3f2711;
+}
+
+.body_hide {
+    opacity: 0;
+    -webkit-transition: 1s opacity ease-in-out;
+    -o-transition: 1s opacity ease-in-out;
+    transition: 1s opacity ease-in-out;
+}
+
+.body_visible {
+    opacity: 1 !important;
 }
 
 .main {
@@ -389,6 +409,10 @@ a {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+}
+
+.about__img_text_item:first-child::before {
+    margin-right: 24px;
 }
 
 .about__img_text_item::before {
@@ -763,7 +787,7 @@ a {
 }
 
 .person__img {
-    width: 504px;
+    width: 100%;
 }
 
 .person__img img {
@@ -828,13 +852,12 @@ a {
 @media screen and (max-width: 1199px) {
     .person__img {
         margin: 0 auto;
-        width: 500px;
     }
 
     .person__block {
         margin: 0 auto;
         padding-left: 40px;
-        width: 600px;
+        width: 550px;
     }
 }
 
@@ -842,6 +865,16 @@ a {
     .person__block {
         padding-left: 20px;
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .person__block {
+        margin-top: 32px;
+    }
+
+    .person__img {
+        width: 500px;
     }
 }
 
@@ -1377,7 +1410,6 @@ a {
 
     .person__block {
         height: auto;
-        margin-top: 32px;
         padding-top: 20px;
         padding-bottom: 20px;
         width: 100%;
