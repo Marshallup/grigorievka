@@ -82,7 +82,7 @@
     margin: 30px 0;
     letter-spacing: 0.01em;
     line-height: 136.1%;
-    font-weight: 600;
+    font-weight: 500;
   }
 }
 
@@ -105,21 +105,16 @@
       align-items: center;
       justify-content: center;
       transition: top 0.5s ease;
-      background-color: green;
+      background-color: #ede1ce;
 
       &_link {
         margin: 10px 0 !important;
+        color: $baseTextColor;
       }
     }
 
     .main__menu-active {
       top: 0;
-      // background-color: green;
-      // z-index: 100;
-      // display: flex;
-      // flex-direction: column;
-      // align-items: center;
-      // justify-content: center;
     }
     .burger {
       z-index: 101;
@@ -132,7 +127,7 @@
         display: block;
         width: 25px;
         height: 2px;
-        background-color: #fff;
+        background-color: #3f2711;
         transition: all 0.5s ease;
 
         // &::after,
@@ -160,7 +155,7 @@
         width: 25px;
         height: 2px;
         transform: rotate(0);
-        background-color: #fff;
+        background-color: #3f2711;
         transition: all 0.5s ease;
       }
 
@@ -216,7 +211,10 @@
       font-size: 23px !important;
     }
     .main__subtitle {
-      font-size: 11px !important;
+      max-width: 279px;
+      br {
+        display: none;
+      }
     }
   }
 }
@@ -233,7 +231,7 @@
     }
   }
   &__number {
-    font-weight: 600;
+    font-weight: 500;
     color: $mainTextColor;
   }
 }

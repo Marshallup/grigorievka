@@ -52,6 +52,7 @@
         box-sizing: border-box;
         outline: none;
         cursor: pointer;
+        background-color: transparent;
       }
 
       .slick-active {
@@ -111,6 +112,8 @@
           list-style-type: none;
           line-height: 149.9%;
           font-size: 15px;
+          font-weight: 400;
+          color: $baseTextColor;
         }
       }
 

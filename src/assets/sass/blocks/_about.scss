@@ -32,6 +32,7 @@
       line-height: 152.9%;
       display: flex;
       align-items: center;
+      color: $baseTextColor;
 
       &:first-child::before {
         margin-right: 24px;
@@ -41,7 +42,6 @@
         counter-increment: count;
         content: "0" counters(count, ".") "";
         margin-right: 18px;
-        // width: 31px;
         font-size: 25px;
         font-weight: 800;
         color: #ddc8a5;
@@ -71,6 +71,7 @@
     &__subtitle {
       margin: 10px auto 0 auto;
       width: 281px;
+      font-size: 16px;
     }
     &__img {
       margin-top: 30px;
@@ -89,7 +90,7 @@
       top: -192px;
       left: 71px;
       text-align: left;
-      color: #fff5e5;
+      color: rgba($color: #fff5e5, $alpha: 0.9);
     }
   }
 

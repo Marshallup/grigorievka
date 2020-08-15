@@ -1,3 +1,8 @@
+@media screen and (max-width: 500px) {
+  .main__header {
+    padding-top: 30px;
+  }
+}
 @media screen and (max-width: 991px) {
   .forms {
     position: relative;
@@ -37,16 +42,24 @@
     }
 
     @media screen and (max-width: 425px) {
+      .forms__container {
+        padding: 0;
+      }
       .contacts__block_left {
-        width: 260px;
+        width: 276px;
 
         .contacts__left_title,
         .contacts__left_wrap {
           margin-left: 24px;
         }
+
+        .contacts__left_title {
+          font-size: 20px;
+        }
       }
       .contacts__block_right {
-        width: 280px;
+        // width: 280px;
+        width: 100%;
 
         input,
         textarea {
@@ -65,6 +78,7 @@
 
     &__title {
       font-size: 26px;
+      line-height: 139.9%;
     }
 
     &__subtitle {
@@ -80,7 +94,7 @@
       flex-basis: 100%;
 
       &:first-child {
-        margin-top: 39px;
+        margin-top: 30px;
       }
 
       &:last-child {
@@ -98,9 +112,31 @@
     &__block {
       height: auto;
       // margin-top: 32px;
-      padding-top: 20px;
-      padding-bottom: 20px;
+      padding-top: 30px;
+      padding-bottom: 30px;
       width: 100%;
+    }
+
+    &__post {
+      font-size: 15px;
+    }
+
+    &__name {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    &__title {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    &__text {
+      width: 239px;
+      font-size: 15px;
+      br {
+        display: none;
+      }
     }
   }
 
@@ -119,7 +155,8 @@
 
     @media screen and (max-width: 388px) {
       &__wrap_block {
-        margin: 0 !important;
+        margin: 0 auto !important;
+        padding-left: 20px;
 
         &:first-child {
           margin-bottom: 20px !important;
@@ -130,11 +167,21 @@
 }
 
 @media screen and (max-width: 500px) {
+  .gr__title {
+    font-size: 20px !important;
+  }
   .choose {
-    padding-bottom: 60px;
+    padding-bottom: 50px;
 
     &__title {
       font-size: 26px;
+      margin-bottom: 0;
+    }
+
+    &__content_block {
+      &:first-child {
+        margin-top: 20px;
+      }
     }
     &__number {
       display: none;

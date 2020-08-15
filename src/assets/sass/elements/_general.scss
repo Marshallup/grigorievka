@@ -31,6 +31,16 @@ a {
   font-size: 30px;
   font-weight: 800;
   color: $baseTextColor;
+  letter-spacing: 1px;
+  // АНИМАЦИЯ ПОЯВЛЕНИЯ ЗАГОЛОВКОВ
+  transform: translate(0, 120%);
+  opacity: 0;
+  transition: all 1s ease;
+}
+.gr__title.anim-active,
+.contacts__left_title.anim-active {
+  transform: translate(0, 0) !important;
+  opacity: 1 !important;
 }
 .gr__subtitle {
   line-height: 139.9%;
@@ -41,52 +51,118 @@ a {
   color: $baseTextColor;
 }
 
-.body_hide {
-  opacity: 0;
-  transition: 1s opacity ease-in-out;
-}
-
-.body_visible {
-  opacity: 1 !important;
-}
-
-// .preloader__wrap {
-//   position: fixed;
-//   z-index: 1000;
-//   width: 100vw;
-//   height: 100vh;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: white;
-
-//   .preloader {
-//     position: relative;
-//     width: 100px;
-//     height: 115px;
-
-//     img {
-//       position: absolute;
-//     }
-
-//     &__img {
-//       &-earth {
-//         left: 50%;
-//         bottom: 21px;
-//         transform: translateX(-50%);
-//       }
-
-//       &-flower-leg {
-//         top: 50%;
-//         left: 50%;
-//         transform: translate(-50%, -50%);
-//       }
-
-//       &-flower {
-//         top: -10px;
-//         left: 50%;
-//         transform: translateX(-50%);
-//       }
-//     }
-//   }
+// .body_hide {
+//   opacity: 0;
+//   transition: 1s opacity ease-in-out;
 // }
+
+// .body_visible {
+//   opacity: 1 !important;
+// }
+
+.preloader__wrap {
+  position: fixed;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  opacity: 1;
+  transition: opacity 1s ease;
+
+  .preloader {
+    position: relative;
+    width: 100px;
+    height: 115px;
+
+    img {
+      position: absolute;
+    }
+
+    &__img {
+      &-earth {
+        left: 50%;
+        bottom: 21px;
+        transform: translateX(-50%);
+      }
+
+      &-flower-leg {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      &-flower {
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        // Анимация вращения
+        animation-name: rotation;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      @keyframes rotation {
+        0% {
+          transform: translateX(-50%) rotate(0deg);
+        }
+        100% {
+          transform: translateX(-50%) rotate(360deg);
+        }
+      }
+    }
+  }
+}
+
+.preloader__hide {
+  opacity: 0 !important;
+}
+
+// АНИМАЦИЯ ТЕЛЕФОННОЙ ТРУБКИ
+
+@-webkit-keyframes hvr-buzz {
+  50% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  100% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+}
+@keyframes hvr-buzz {
+  50% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  100% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+}
+.hvr-buzz {
+  .phone__img {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  }
+}
+.hvr-buzz:hover,
+.hvr-buzz:focus,
+.hvr-buzz:active {
+  .phone__img {
+    -webkit-animation-name: hvr-buzz;
+    animation-name: hvr-buzz;
+    -webkit-animation-duration: 0.15s;
+    animation-duration: 0.15s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
+}

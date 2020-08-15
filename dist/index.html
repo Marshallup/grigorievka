@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;800&display=swap"
           rel="stylesheet"
         />
         <link rel="stylesheet" href="assets/libraries/normalize.css" />
@@ -20,8 +20,8 @@
         <title>HomePage</title>
       </head>
     </html>
-<body class="body_hide">
-    <!-- <div class="preloader__wrap">
+<body>
+    <div class="preloader__wrap">
         <div class="preloader">
           <img class="preloader__img-earth" src="assets/img/icons/preloader/earth.svg" alt="земля" />
           <img class="preloader__img-flower-leg"
@@ -30,7 +30,7 @@
           />
           <img class="preloader__img-flower" src="assets/img/icons/preloader/flower.svg" alt="цветок" />
         </div>
-    </div> -->
+    </div>
     <section class="main">
       <div class="container main__container">
         <div class="row justify-content-space-between">
@@ -53,7 +53,7 @@
               </nav>
               <div class="burger"><span></span></div>
     
-              <a href="tel:+79500245116" class="phone"
+              <a href="tel:+79500245116" class="phone hvr-buzz"
                 ><div class="phone__img">
                   <img src="assets/img/icons/phone__main.png" alt="phone" />
                 </div>
@@ -74,7 +74,7 @@
               сельскохозяйсвтенной продукции <br />
               на алтайской земле
             </p>
-            <button class="gr__button gr__button_main">
+            <button class="gr__button gr__button_main hvr-wobble-bottom">
               <a href="#about">Подробнее</a>
             </button>
           </div>
@@ -85,7 +85,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h2 class="gr__title">О нас</h2>
+            <h2 class="gr__title anim-items">О нас</h2>
           </div>
           <div class="col-12">
             <p class="gr__subtitle about__subtitle">
@@ -132,7 +132,9 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h2 class="choose__title gr__title">Почему клиенты выбирают нас</h2>
+            <h2 class="choose__title gr__title anim-items">
+              Почему клиенты выбирают нас
+            </h2>
           </div>
         </div>
         <div class="row">
@@ -190,20 +192,22 @@
     <section class="activity gr__section">
       <div class="container">
         <div class="row">
-          <div class="col-xl-7 col-lg-9">
-            <h2 class="gr__title activity__title">Основная деятельность</h2>
+          <div class="col-xl-8 col-lg-9">
+            <h2 class="gr__title activity__title anim-items">
+              Основная деятельность
+            </h2>
     
             <div class="activity__wrap">
               <div class="activity__block">
                 <div class="activity__block_img">
-                  <img src="assets/img/icons/activity/wheat.png" alt="wheat" />
+                  <img src="assets/img/icons/activity/wheat.svg" alt="wheat" />
                 </div>
                 <div class="activity__block_title">Производство</div>
               </div>
     
               <div class="activity__block">
                 <div class="activity__block_img">
-                  <img src="assets/img/icons/activity/loop.png" alt="loop" />
+                  <img src="assets/img/icons/activity/loop.svg" alt="loop" />
                 </div>
                 <div class="activity__block_title">Переработка</div>
               </div>
@@ -252,7 +256,7 @@
     </section>
     <section id="products" class="products gr__section">
       <div class="container">
-        <h2 class="gr__title">Продукция</h2>
+        <h2 class="gr__title anim-items">Продукция</h2>
         <div class="slider">
           <div class="slider__item">
             <div class="slider__item_block">
@@ -392,7 +396,7 @@
             </div>
           </div>
           <div class="col-xl-6">
-            <h2 class="gr__title numbers__title">
+            <h2 class="gr__title numbers__title anim-items">
               СПК «Григорьевка» в цифрах
             </h2>
             <div class="numbers__wrap">
@@ -417,11 +421,11 @@
       </div>
     </section>
     <section class="gr__section forms">
-      <div id="contacts" class="container">
+      <div id="contacts" class="container forms__container">
         <div class="row no-gutters align-items-center">
           <div class="col-md-6">
             <div class="contacts__block_left">
-              <h2 class="contacts__left_title">Контакты</h2>
+              <h2 class="contacts__left_title anim-items">Контакты</h2>
               <div class="contacts__left_wrap">
                 <div class="contacts__info">
                   <div class="contacts__info_title">Адрес:</div>
@@ -453,6 +457,9 @@
                   </div>
                 </div>
               </div>
+              <div class="contacts__img_left">
+                <img src="assets/img/bag.png" alt="bag" />
+              </div>
             </div>
           </div>
     
@@ -461,7 +468,9 @@
               <div class="contacts__img">
                 <img src="assets/img/bag.png" alt="bag" />
               </div>
-              <h2 class="gr__title contacts__right_title">Есть вопросы?</h2>
+              <h2 class="gr__title contacts__right_title anim-items">
+                Есть вопросы?
+              </h2>
               <div class="contacts__right_subtitle">
                 Мы с удовольствием ответим <br />
                 на любой ваш вопрос
@@ -532,7 +541,7 @@
             </nav>
           </div>
           <div class="col-lg-2">
-            <a href="tel:+79500245116" class="phone footer__phone"
+            <a href="tel:+79500245116" class="phone footer__phone hvr-buzz"
               ><div class="phone__img footer__phone_img">
                 <img src="assets/img/icons/phone__main.png" alt="phone" />
               </div>
