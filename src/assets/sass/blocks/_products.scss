@@ -5,6 +5,8 @@
     height: 320px;
     position: relative;
     margin-top: 67px;
+    opacity: 0;
+    transition: all 1s ease;
 
     .slick-arrow {
       position: absolute;
@@ -135,6 +137,9 @@
       }
     }
   }
+  .slider.anim-active {
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -155,6 +160,41 @@
     }
     .slick-next {
       right: 0 !important;
+    }
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .slider {
+    overflow: hidden;
+  }
+
+  .slider__item {
+    opacity: 0;
+    transform: translate(100%, 0);
+  }
+  .slider__item.anim-active {
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+  }
+}
+// .slider__item.anim-active {
+//   @media screen and (max-width: 465px) {
+//     opacity: 1;
+//   }
+// }
+
+.slider {
+  &__item.anim-active {
+    @for $var from 1 to 6 {
+      $delay: $var * 0.1;
+      &:nth-child(#{$var}) {
+        @if $var == 1 {
+          transition: all 1s ease;
+        } @else {
+          transition: all 1s ease #{$delay + s};
+        }
+      }
     }
   }
 }

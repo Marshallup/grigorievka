@@ -7,6 +7,11 @@
   font-weight: 600;
   color: $mainTextColor;
   cursor: pointer;
+  outline: none;
+
+  &_main {
+    transition: all 1.2s ease 1s;
+  }
 
   a {
     color: $mainTextColor;

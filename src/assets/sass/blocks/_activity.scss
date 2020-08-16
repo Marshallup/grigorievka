@@ -3,16 +3,7 @@
   background: url("/assets/img/section__activity.jpg") center center/cover
     no-repeat;
   padding-bottom: $sectionIndent;
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-  }
+  overflow: hidden;
 
   &__title {
     text-align: center;
@@ -25,6 +16,14 @@
     font-weight: 600;
     font-size: 26px;
     color: #ede1ce;
+    opacity: 0;
+    transform: translate(0, 200%);
+    transition: all 1s ease;
+  }
+
+  &__subtitle.anim-active {
+    opacity: 1;
+    transform: translate(0, 0);
   }
 
   &__wrap {
@@ -34,6 +33,26 @@
 
   &__block {
     margin: 100px 30px 100px 30px;
+    opacity: 0;
+
+    &:nth-child(1) {
+      transform: translate(-120%, 0);
+      transition: all 1s ease;
+    }
+    &:nth-child(2) {
+      transform: translate(0, 120%);
+      transition: all 1s ease 0.15s;
+    }
+    &:nth-child(3) {
+      transform: translate(120%, 0);
+      transition: all 1s ease 0.3s;
+    }
+    &:nth-child(1).anim-active,
+    &:nth-child(2).anim-active,
+    &:nth-child(3).anim-active {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
   }
 
   &__block_img {

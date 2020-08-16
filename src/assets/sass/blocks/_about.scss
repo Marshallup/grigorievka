@@ -1,4 +1,5 @@
 .about {
+  overflow: hidden;
   &__subtitle {
     margin-top: 10px;
   }
@@ -10,11 +11,28 @@
   &__img {
     width: 540px;
     height: 328px;
+    opacity: 0;
+    transform: translate(-100%, 0);
+    transition: all 1.5s ease;
 
     img {
       width: 100%;
       border-radius: 5px;
     }
+  }
+  &__img.anim-active {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  &__right-anim {
+    opacity: 0;
+    transform: translate(100%, 0);
+    transition: all 1.5s ease;
+  }
+  &__right-anim.anim-active {
+    opacity: 1;
+    transform: translate(0, 0);
   }
 
   &__img_title {

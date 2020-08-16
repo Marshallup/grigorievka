@@ -1,3 +1,8 @@
+// html,
+body {
+  position: relative;
+  overflow-x: hidden;
+}
 body {
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
@@ -14,7 +19,7 @@ a {
 
 .no-scroll {
   position: relative;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .gr__section {
@@ -32,13 +37,13 @@ a {
   font-weight: 800;
   color: $baseTextColor;
   letter-spacing: 1px;
+
   // АНИМАЦИЯ ПОЯВЛЕНИЯ ЗАГОЛОВКОВ
   transform: translate(0, 120%);
   opacity: 0;
   transition: all 1s ease;
 }
-.gr__title.anim-active,
-.contacts__left_title.anim-active {
+.gr__title.anim-active {
   transform: translate(0, 0) !important;
   opacity: 1 !important;
 }
@@ -49,6 +54,15 @@ a {
   letter-spacing: 0.04em;
   text-align: center;
   color: $baseTextColor;
+
+  // АНИМАЦИЯ ПОЯВЛЕНИЯ ПОДЗАГОЛОВКОВ
+  transform: translate(0, 120%);
+  opacity: 0;
+  transition: all 1s ease;
+}
+.gr__subtitle.anim-active {
+  transform: translate(0, 0);
+  opacity: 1;
 }
 
 // .body_hide {
@@ -68,7 +82,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: #ede1ce;
   opacity: 1;
   transition: opacity 1s ease;
 
@@ -82,35 +96,43 @@ a {
     }
 
     &__img {
+      &-earth,
+      &-flower-leg,
+      &-flower {
+        opacity: 0;
+      }
+
       &-earth {
         left: 50%;
         bottom: 21px;
         transform: translateX(-50%);
+        transition: opacity 2s ease 0.1s;
       }
 
       &-flower-leg {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        transition: opacity 3s ease 0.7s;
       }
 
       &-flower {
         top: -10px;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 22px;
+        transition: opacity 2s ease 1.5s;
         // Анимация вращения
         animation-name: rotation;
-        animation-duration: 5s;
+        animation-duration: 1.2s;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
       }
 
       @keyframes rotation {
         0% {
-          transform: translateX(-50%) rotate(0deg);
+          transform: rotate(0deg);
         }
         100% {
-          transform: translateX(-50%) rotate(360deg);
+          transform: rotate(360deg);
         }
       }
     }
@@ -121,29 +143,97 @@ a {
   opacity: 0 !important;
 }
 
+.preloader__img_show {
+  opacity: 1 !important;
+}
+
 // АНИМАЦИЯ ТЕЛЕФОННОЙ ТРУБКИ
 
-@-webkit-keyframes hvr-buzz {
-  50% {
+@-webkit-keyframes hvr-buzz-out {
+  10% {
     -webkit-transform: translateX(3px) rotate(2deg);
     transform: translateX(3px) rotate(2deg);
   }
-  100% {
+  20% {
     -webkit-transform: translateX(-3px) rotate(-2deg);
     transform: translateX(-3px) rotate(-2deg);
   }
-}
-@keyframes hvr-buzz {
-  50% {
+  30% {
     -webkit-transform: translateX(3px) rotate(2deg);
     transform: translateX(3px) rotate(2deg);
   }
-  100% {
+  40% {
     -webkit-transform: translateX(-3px) rotate(-2deg);
     transform: translateX(-3px) rotate(-2deg);
   }
+  50% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  60% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  70% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  80% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  90% {
+    -webkit-transform: translateX(1px) rotate(0);
+    transform: translateX(1px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateX(-1px) rotate(0);
+    transform: translateX(-1px) rotate(0);
+  }
 }
-.hvr-buzz {
+@keyframes hvr-buzz-out {
+  10% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  20% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  30% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  40% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  50% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  60% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  70% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  80% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  90% {
+    -webkit-transform: translateX(1px) rotate(0);
+    transform: translateX(1px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateX(-1px) rotate(0);
+    transform: translateX(-1px) rotate(0);
+  }
+}
+.hvr-buzz-out {
   .phone__img {
     display: inline-block;
     vertical-align: middle;
@@ -152,17 +242,17 @@ a {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   }
 }
-.hvr-buzz:hover,
-.hvr-buzz:focus,
-.hvr-buzz:active {
+.hvr-buzz-out:hover,
+.hvr-buzz-out:focus,
+.hvr-buzz-out:active {
   .phone__img {
-    -webkit-animation-name: hvr-buzz;
-    animation-name: hvr-buzz;
-    -webkit-animation-duration: 0.15s;
-    animation-duration: 0.15s;
+    -webkit-animation-name: hvr-buzz-out;
+    animation-name: hvr-buzz-out;
+    -webkit-animation-duration: 0.75s;
+    animation-duration: 0.75s;
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
   }
 }

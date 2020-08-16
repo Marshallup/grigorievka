@@ -14,6 +14,24 @@
   //   transform: translate(0, 0);
   //   opacity: 1;
   // }
+
+  &__anim-block {
+    opacity: 0;
+    transform: scale(0, 0);
+
+    &:nth-child(1) {
+      transition: all 1s ease;
+    }
+    &:nth-child(2) {
+      transition: all 1s ease 0.1s;
+    }
+    &:nth-child(3) {
+      transition: all 1s ease 0.2s;
+    }
+    &:nth-child(4) {
+      transition: all 1s ease 0.3s;
+    }
+  }
   &__content_block {
     margin-top: 60px;
     display: flex;
@@ -39,5 +57,10 @@
       line-height: 20px;
       color: $baseTextColor;
     }
+  }
+
+  &__anim-block.anim-active {
+    opacity: 1;
+    transform: scale(1);
   }
 }

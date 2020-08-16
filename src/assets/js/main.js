@@ -30,7 +30,6 @@ burger.onclick = function () {
   this.classList.toggle("burger-active");
   menu.classList.toggle("main__menu-active");
   document.body.classList.toggle("no-scroll");
-  // document.html.classList.toggle("no-scroll");
 };
 
 menu.onclick = function () {
@@ -38,7 +37,6 @@ menu.onclick = function () {
     this.classList.toggle("main__menu-active");
     burger.classList.toggle("burger-active");
     document.body.classList.toggle("no-scroll");
-    // document.html.classList.toggle("no-scroll");
   }
 };
 
@@ -51,48 +49,76 @@ $("body").on("click", '[href*="#"]', function (e) {
     .animate({ scrollTop: $(this.hash).offset().top - fixed_offset }, 1000);
   e.preventDefault();
 });
+$(".gr__button_main").on("click", function (e) {
+  $("html,body")
+    .stop()
+    .animate({ scrollTop: $("#about").offset().top }, 1000);
+});
 
 // ПРЕЛОАДЕР
 
+let seconds = 0;
+
+let timer = setInterval(function () {
+  seconds++;
+}, 10);
+
+let img = document.querySelector(".preloader__wrap").querySelectorAll("img");
+for (let i = 0; i < img.length; i++) {
+  let k = new Image();
+  k.src = img[i].src;
+  k.onload = () => {
+    img[i].classList.add("preloader__img_show");
+  };
+}
+
 window.onload = () => {
-  document.querySelector(".preloader__wrap").classList.add("preloader__hide");
-  setTimeout(function () {
-    document.querySelector(".preloader__wrap").remove();
-  }, 800);
-  // document.body.classList.add("body_hide");
-  // setTimeout(function () {
-  //   document.body.classList.add("body_visible");
-  // }, 1000);
+  if (seconds <= 500) {
+    setTimeout(animPreloader, 3000);
+  } else {
+    animPreloader();
+  }
 };
 
-//  АНИМАЦИИ ПРИ СКРОЛЛЕ
+function animPreloader() {
+  clearInterval(timer);
+  document.querySelector(".preloader__wrap").classList.add("preloader__hide");
+  document.body.classList.remove("no-scroll");
+  setTimeout(function () {
+    document.querySelector(".preloader__wrap").remove();
 
-let animItems = document.querySelectorAll(".anim-items");
+    //  АНИМАЦИИ ПРИ СКРОЛЛЕ
 
-if (animItems.length > 0) {
-  window.addEventListener("scroll", animOnScroll);
-  function animOnScroll() {
-    for (let i = 0; i < animItems.length; i++) {
-      const animItem = animItems[i];
-      const animItemHeight = animItem.offsetHeight;
-      const animItemOffset = offset(animItem).top;
-      const animStart = 4;
+    let animItems = document.querySelectorAll(".anim-items");
 
-      let animItemPoint = window.innerHeight - animItemHeight / animStart;
-      if (animItemHeight > window.innerHeight) {
-        animItemPoint = window.innerHeight - window.innerHeight / animStart;
+    if (animItems.length > 0) {
+      window.addEventListener("scroll", animOnScroll);
+      function animOnScroll() {
+        for (let i = 0; i < animItems.length; i++) {
+          const animItem = animItems[i];
+          const animItemHeight = animItem.offsetHeight;
+          const animItemOffset = offset(animItem).top;
+          const animStart = 4;
+
+          let animItemPoint = window.innerHeight - animItemHeight / animStart;
+          if (animItemHeight > window.innerHeight) {
+            animItemPoint = window.innerHeight - window.innerHeight / animStart;
+          }
+
+          if (
+            pageYOffset > animItemOffset - animItemPoint &&
+            pageYOffset < animItemOffset + animItemHeight
+          ) {
+            animItem.classList.add("anim-active");
+          } else {
+            animItem.classList.remove("anim-active");
+          }
+        }
       }
 
-      if (
-        pageYOffset > animItemOffset - animItemPoint &&
-        pageYOffset < animItemOffset + animItemHeight
-      ) {
-        animItem.classList.add("anim-active");
-      } else {
-        animItem.classList.remove("anim-active");
-      }
+      animOnScroll();
     }
-  }
+  }, 800);
 }
 
 function offset(el) {
@@ -101,6 +127,54 @@ function offset(el) {
     scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
 }
+
+// let numbers = document.querySelectorAll(".numbers__wrap_numeric");
+// let number = 0;
+// let text = numbers[0].textContent;
+
+// setTimeout(function dd() {
+//   if (number < text) {
+//     number++;
+//     numbers[0].innerHTML = number;
+//     setTimeout(dd, 500);
+//   } else {
+//     clearTimeout(dd);
+//   }
+// }, 500);
+
+// window.addEventListener("scroll");
+
+// function animCount(elem, delay) {
+//   let text = document.querySelector(".numbers__wrap_numeric").textContent;
+//   let number = 0;
+
+//   const animCountHeight = document.querySelector(".numbers__wrap_numeric")
+//     .offsetHeight;
+//   const animCountOffset = offset(
+//     document.querySelector(".numbers__wrap_numeric")
+//   ).top;
+//   const animCountStart = 4;
+
+//   let animCountPoint = window.innerHeight - animCountHeight / animCountStart;
+//   if (animCountHeight > window.innerHeight) {
+//     animCountPoint = window.innerHeight - window.innerHeight / animCountStart;
+//   }
+
+//   if (
+//     pageYOffset > animCountOffset - animCountPoint &&
+//     pageYOffset < animCountOffset + animCountHeight
+//   ) {
+//     setTimeout(function countTimer() {
+//       if (number < text) {
+//         number++;
+//         document.querySelector(".numbers__wrap_numeric").innerHTML = number;
+//         setTimeout(countTimer, 500);
+//       } else {
+//         clearTimeout(countTimer);
+//       }
+//     }, 500);
+//   }
+// }
 
 // ПАРАЛАКС ЭФФЕКТ ДЛЯ ЛОГОТИПА НА ГЛАВНОМ ЭКРАНЕ
 
