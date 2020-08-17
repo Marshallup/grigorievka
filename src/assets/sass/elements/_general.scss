@@ -28,6 +28,7 @@ a {
 
   @media screen and (max-width: 500px) {
     padding-top: $sectionIndentMobile;
+    padding-bottom: $sectionIndentMobile !important;
   }
 }
 .gr__title {

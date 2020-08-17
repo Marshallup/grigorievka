@@ -132,7 +132,7 @@
     }
 
     &__text {
-      width: 239px;
+      max-width: 354px;
       font-size: 15px;
       br {
         display: none;
@@ -200,7 +200,7 @@
 
 @media screen and (max-width: 465px) {
   .slider {
-    margin-top: 27px !important;
+    margin-top: 3px !important;
     padding: 0 !important;
     height: auto !important;
 

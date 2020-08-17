@@ -23,6 +23,7 @@ $(document).ready(function () {
   });
 });
 
+// ЗАПРЕТ СКРОЛЛА ПРИ МОБИЛЬНОМ МЕНЮ
 let burger = document.getElementsByClassName("burger")[0];
 let menu = document.getElementsByClassName("main__menu")[0];
 
@@ -43,7 +44,8 @@ menu.onclick = function () {
 // ПЛАВНЫЙ ПЕРЕХОД ПО ССЫЛКАМ
 
 $("body").on("click", '[href*="#"]', function (e) {
-  var fixed_offset = 0;
+  // 79 - ВЫСОТА ЛИПКОГО МЕНЮ
+  var fixed_offset = 79;
   $("html,body")
     .stop()
     .animate({ scrollTop: $(this.hash).offset().top - fixed_offset }, 1000);
@@ -121,12 +123,25 @@ function animPreloader() {
   }, 800);
 }
 
+// ФУНКЦИЯ ДЛЯ ОПРЕДЕЛЕНИЯ ЗНАЧЕНИЯ ВЕРХ И ЛЕВО ЭЛЕМЕНТА ДЛЯ ВСЕХ БРАУЗЕРОВ
 function offset(el) {
   const rect = el.getBoundingClientRect(),
     scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
     scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
 }
+
+// ЛИПКОЕ МЕНЮ
+const header = document.querySelector(".main__header");
+const sectionAboutTitle = document.getElementById("about__title");
+
+window.addEventListener("scroll", function () {
+  if (pageYOffset >= offset(sectionAboutTitle).top) {
+    header.classList.add("main__header-sticky");
+  } else {
+    header.classList.remove("main__header-sticky");
+  }
+});
 
 // let numbers = document.querySelectorAll(".numbers__wrap_numeric");
 // let number = 0;

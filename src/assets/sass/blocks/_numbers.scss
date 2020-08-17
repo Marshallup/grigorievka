@@ -66,4 +66,10 @@
       }
     }
   }
+
+  @media screen and (min-width: 546px) {
+    &__wrap_text-marginRight {
+      margin-right: 20px;
+    }
+  }
 }

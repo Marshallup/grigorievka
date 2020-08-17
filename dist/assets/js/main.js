@@ -19,7 +19,8 @@ $(document).ready(function () {
       settings: "unslick"
     }]
   });
-});
+}); // ЗАПРЕТ СКРОЛЛА ПРИ МОБИЛЬНОМ МЕНЮ
+
 var burger = document.getElementsByClassName("burger")[0];
 var menu = document.getElementsByClassName("main__menu")[0];
 
@@ -39,7 +40,8 @@ menu.onclick = function () {
 
 
 $("body").on("click", '[href*="#"]', function (e) {
-  var fixed_offset = 0;
+  // 79 - ВЫСОТА ЛИПКОГО МЕНЮ
+  var fixed_offset = 79;
   $("html,body").stop().animate({
     scrollTop: $(this.hash).offset().top - fixed_offset
   }, 1000);
@@ -112,7 +114,8 @@ function animPreloader() {
       animOnScroll();
     }
   }, 800);
-}
+} // ФУНКЦИЯ ДЛЯ ОПРЕДЕЛЕНИЯ ЗНАЧЕНИЯ ВЕРХ И ЛЕВО ЭЛЕМЕНТА ДЛЯ ВСЕХ БРАУЗЕРОВ
+
 
 function offset(el) {
   var rect = el.getBoundingClientRect(),
@@ -122,7 +125,18 @@ function offset(el) {
     top: rect.top + scrollTop,
     left: rect.left + scrollLeft
   };
-} // let numbers = document.querySelectorAll(".numbers__wrap_numeric");
+} // ЛИПКОЕ МЕНЮ
+
+
+var header = document.querySelector(".main__header");
+var sectionAboutTitle = document.getElementById("about__title");
+window.addEventListener("scroll", function () {
+  if (pageYOffset >= offset(sectionAboutTitle).top) {
+    header.classList.add("main__header-sticky");
+  } else {
+    header.classList.remove("main__header-sticky");
+  }
+}); // let numbers = document.querySelectorAll(".numbers__wrap_numeric");
 // let number = 0;
 // let text = numbers[0].textContent;
 // setTimeout(function dd() {

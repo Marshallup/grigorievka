@@ -239,5 +239,11 @@
         max-width: 401px;
       }
     }
+
+    @media screen and (max-width: 465px) {
+      &__form {
+        margin-top: 25px;
+      }
+    }
   }
 }
