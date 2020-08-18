@@ -44,8 +44,7 @@ menu.onclick = function () {
 // ПЛАВНЫЙ ПЕРЕХОД ПО ССЫЛКАМ
 
 $("body").on("click", '[href*="#"]', function (e) {
-  // 79 - ВЫСОТА ЛИПКОГО МЕНЮ
-  var fixed_offset = 79;
+  var fixed_offset = 0;
   $("html,body")
     .stop()
     .animate({ scrollTop: $(this.hash).offset().top - fixed_offset }, 1000);
@@ -87,7 +86,11 @@ function animPreloader() {
   document.querySelector(".preloader__wrap").classList.add("preloader__hide");
   document.body.classList.remove("no-scroll");
   setTimeout(function () {
-    document.querySelector(".preloader__wrap").remove();
+    if (browser == "Edge" || browser == "Internet Explorer") {
+      document.body.removeChild(document.querySelector(".preloader__wrap"));
+    } else {
+      document.querySelector(".preloader__wrap").remove();
+    }
 
     //  АНИМАЦИИ ПРИ СКРОЛЛЕ
 
@@ -131,65 +134,82 @@ function offset(el) {
   return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
 }
 
-// ЛИПКОЕ МЕНЮ
-const header = document.querySelector(".main__header");
-const sectionAboutTitle = document.getElementById("about__title");
+// ПОДКЛЮЧЕНИЕ ПЛАГИНА ДЛЯ АНИМИРОВАННОГО СЧЁТЧИКА
+//= components/jquery.spincrement.min.js
 
-window.addEventListener("scroll", function () {
-  if (pageYOffset >= offset(sectionAboutTitle).top) {
-    header.classList.add("main__header-sticky");
-  } else {
-    header.classList.remove("main__header-sticky");
+// АНИМАЦИЯ ЦИФР
+$(document).ready(function () {
+  $(window).on("scroll load resize", function () {
+    screenPoint(".numbers__wrap_block", 100, true, function () {
+      $(".numbers__wrap_numeric").spincrement({
+        from: 0,
+        to: null,
+        thousandSeparator: " ",
+        duration: 900,
+        fade: true,
+      });
+    });
+  });
+
+  let show = true;
+
+  function screenPoint(elem, offseteder, infiniter, callback) {
+    let infinit = infiniter;
+    let countbox = elem;
+    let offseted = offseteder;
+    let func = callback || function () {};
+    let w_top = $(window).scrollTop();
+    let w_height = $(window).height();
+    let e_top = $(countbox).offset().top;
+    let e_height = $(countbox).outerHeight();
+
+    if (infinit) {
+      if (
+        (w_top + w_height < e_top && show == false) ||
+        (w_top > e_top + e_height && show == false)
+      ) {
+        show = true;
+      }
+    }
+
+    if (!show) return false;
+
+    if (
+      w_top + w_height - offseted >= e_top &&
+      w_top + offseted < e_top + e_height
+    ) {
+      func();
+      show = false;
+    }
   }
 });
+// ОПРЕДЕЛЕНИЕ БРАУЗЕРА
+function get_name_browser() {
+  var ua = navigator.userAgent;
+  if (ua.search(/YaBrowser/) > 0) return "Яндекс Браузер";
+  if (ua.search(/rv:11.0/) > 0) return "Internet Explorer";
+  if (ua.search(/MSIE/) > 0) return "Internet Explorer";
+  if (ua.search(/Edge/) > 0) return "Edge";
+  if (ua.search(/Chrome/) > 0) return "Google Chrome";
+  if (ua.search(/Firefox/) > 0) return "Firefox";
+  if (ua.search(/Opera/) > 0) return "Opera";
+  if (ua.search(/Safari/) > 0) return "Safari";
+  return "Не определен";
+}
 
-// let numbers = document.querySelectorAll(".numbers__wrap_numeric");
-// let number = 0;
-// let text = numbers[0].textContent;
+let browser = get_name_browser();
 
-// setTimeout(function dd() {
-//   if (number < text) {
-//     number++;
-//     numbers[0].innerHTML = number;
-//     setTimeout(dd, 500);
+// ЛИПКОЕ МЕНЮ
+// const header = document.querySelector(".main__header");
+// const sectionAboutTitle = document.getElementById("about__title");
+
+// window.addEventListener("scroll", function () {
+//   if (pageYOffset >= offset(sectionAboutTitle).top) {
+//     header.classList.add("main__header-sticky");
 //   } else {
-//     clearTimeout(dd);
+//     header.classList.remove("main__header-sticky");
 //   }
-// }, 500);
-
-// window.addEventListener("scroll");
-
-// function animCount(elem, delay) {
-//   let text = document.querySelector(".numbers__wrap_numeric").textContent;
-//   let number = 0;
-
-//   const animCountHeight = document.querySelector(".numbers__wrap_numeric")
-//     .offsetHeight;
-//   const animCountOffset = offset(
-//     document.querySelector(".numbers__wrap_numeric")
-//   ).top;
-//   const animCountStart = 4;
-
-//   let animCountPoint = window.innerHeight - animCountHeight / animCountStart;
-//   if (animCountHeight > window.innerHeight) {
-//     animCountPoint = window.innerHeight - window.innerHeight / animCountStart;
-//   }
-
-//   if (
-//     pageYOffset > animCountOffset - animCountPoint &&
-//     pageYOffset < animCountOffset + animCountHeight
-//   ) {
-//     setTimeout(function countTimer() {
-//       if (number < text) {
-//         number++;
-//         document.querySelector(".numbers__wrap_numeric").innerHTML = number;
-//         setTimeout(countTimer, 500);
-//       } else {
-//         clearTimeout(countTimer);
-//       }
-//     }, 500);
-//   }
-// }
+// });
 
 // ПАРАЛАКС ЭФФЕКТ ДЛЯ ЛОГОТИПА НА ГЛАВНОМ ЭКРАНЕ
 

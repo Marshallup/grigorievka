@@ -112,6 +112,10 @@
     }
   }
 
+  @media screen and (max-width: 500px) {
+    padding-bottom: 0 !important;
+  }
+
   @media screen and (max-width: 400px) {
     &__img {
       width: 290px;

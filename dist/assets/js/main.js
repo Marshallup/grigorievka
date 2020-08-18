@@ -40,8 +40,7 @@ menu.onclick = function () {
 
 
 $("body").on("click", '[href*="#"]', function (e) {
-  // 79 - ВЫСОТА ЛИПКОГО МЕНЮ
-  var fixed_offset = 79;
+  var fixed_offset = 0;
   $("html,body").stop().animate({
     scrollTop: $(this.hash).offset().top - fixed_offset
   }, 1000);
@@ -85,7 +84,12 @@ function animPreloader() {
   document.querySelector(".preloader__wrap").classList.add("preloader__hide");
   document.body.classList.remove("no-scroll");
   setTimeout(function () {
-    document.querySelector(".preloader__wrap").remove(); //  АНИМАЦИИ ПРИ СКРОЛЛЕ
+    if (browser == "Edge" || browser == "Internet Explorer") {
+      document.body.removeChild(document.querySelector(".preloader__wrap"));
+    } else {
+      document.querySelector(".preloader__wrap").remove();
+    } //  АНИМАЦИИ ПРИ СКРОЛЛЕ
+
 
     var animItems = document.querySelectorAll(".anim-items");
 
@@ -125,58 +129,134 @@ function offset(el) {
     top: rect.top + scrollTop,
     left: rect.left + scrollLeft
   };
-} // ЛИПКОЕ МЕНЮ
+} // ПОДКЛЮЧЕНИЕ ПЛАГИНА ДЛЯ АНИМИРОВАННОГО СЧЁТЧИКА
 
 
-var header = document.querySelector(".main__header");
-var sectionAboutTitle = document.getElementById("about__title");
-window.addEventListener("scroll", function () {
-  if (pageYOffset >= offset(sectionAboutTitle).top) {
-    header.classList.add("main__header-sticky");
-  } else {
-    header.classList.remove("main__header-sticky");
+!function (t) {
+  t.extend(t.easing, {
+    spincrementEasing: function spincrementEasing(t, a, e, n, r) {
+      return a === r ? e + n : n * (-Math.pow(2, -10 * a / r) + 1) + e;
+    }
+  }), t.fn.spincrement = function (a) {
+    function e(t, a) {
+      if (t = t.toFixed(a), a > 0 && "." !== r.decimalPoint && (t = t.replace(".", r.decimalPoint)), r.thousandSeparator) for (; o.test(t);) {
+        t = t.replace(o, "$1" + r.thousandSeparator + "$2");
+      }
+      return t;
+    }
+
+    var n = {
+      from: 0,
+      to: null,
+      decimalPlaces: null,
+      decimalPoint: ".",
+      thousandSeparator: ",",
+      duration: 1e3,
+      leeway: 50,
+      easing: "spincrementEasing",
+      fade: !0,
+      complete: null
+    },
+        r = t.extend(n, a),
+        o = new RegExp(/^(-?[0-9]+)([0-9]{3})/);
+    return this.each(function () {
+      var a = t(this),
+          n = r.from;
+      a.attr("data-from") && (n = parseFloat(a.attr("data-from")));
+      var o;
+      if (a.attr("data-to")) o = parseFloat(a.attr("data-to"));else if (null !== r.to) o = r.to;else {
+        var i = t.inArray(r.thousandSeparator, ["\\", "^", "$", "*", "+", "?", "."]) > -1 ? "\\" + r.thousandSeparator : r.thousandSeparator,
+            l = new RegExp(i, "g");
+        o = parseFloat(a.text().replace(l, ""));
+      }
+      var c = r.duration;
+      r.leeway && (c += Math.round(r.duration * (2 * Math.random() - 1) * r.leeway / 100));
+      var s;
+      if (a.attr("data-dp")) s = parseInt(a.attr("data-dp"), 10);else if (null !== r.decimalPlaces) s = r.decimalPlaces;else {
+        var d = a.text().indexOf(r.decimalPoint);
+        s = d > -1 ? a.text().length - (d + 1) : 0;
+      }
+      a.css("counter", n), r.fade && a.css("opacity", 0), a.animate({
+        counter: o,
+        opacity: 1
+      }, {
+        easing: r.easing,
+        duration: c,
+        step: function step(t) {
+          a.html(e(t * o, s));
+        },
+        complete: function complete() {
+          a.css("counter", null), a.html(e(o, s)), r.complete && r.complete(a);
+        }
+      });
+    });
+  };
+}(jQuery); // АНИМАЦИЯ ЦИФР
+
+$(document).ready(function () {
+  $(window).on("scroll load resize", function () {
+    screenPoint(".numbers__wrap_block", 100, true, function () {
+      $(".numbers__wrap_numeric").spincrement({
+        from: 0,
+        to: null,
+        thousandSeparator: " ",
+        duration: 900,
+        fade: true
+      });
+    });
+  });
+  var show = true;
+
+  function screenPoint(elem, offseteder, infiniter, callback) {
+    var infinit = infiniter;
+    var countbox = elem;
+    var offseted = offseteder;
+
+    var func = callback || function () {};
+
+    var w_top = $(window).scrollTop();
+    var w_height = $(window).height();
+    var e_top = $(countbox).offset().top;
+    var e_height = $(countbox).outerHeight();
+
+    if (infinit) {
+      if (w_top + w_height < e_top && show == false || w_top > e_top + e_height && show == false) {
+        show = true;
+      }
+    }
+
+    if (!show) return false;
+
+    if (w_top + w_height - offseted >= e_top && w_top + offseted < e_top + e_height) {
+      func();
+      show = false;
+    }
   }
-}); // let numbers = document.querySelectorAll(".numbers__wrap_numeric");
-// let number = 0;
-// let text = numbers[0].textContent;
-// setTimeout(function dd() {
-//   if (number < text) {
-//     number++;
-//     numbers[0].innerHTML = number;
-//     setTimeout(dd, 500);
+}); // ОПРЕДЕЛЕНИЕ БРАУЗЕРА
+
+function get_name_browser() {
+  var ua = navigator.userAgent;
+  if (ua.search(/YaBrowser/) > 0) return "Яндекс Браузер";
+  if (ua.search(/rv:11.0/) > 0) return "Internet Explorer";
+  if (ua.search(/MSIE/) > 0) return "Internet Explorer";
+  if (ua.search(/Edge/) > 0) return "Edge";
+  if (ua.search(/Chrome/) > 0) return "Google Chrome";
+  if (ua.search(/Firefox/) > 0) return "Firefox";
+  if (ua.search(/Opera/) > 0) return "Opera";
+  if (ua.search(/Safari/) > 0) return "Safari";
+  return "Не определен";
+}
+
+var browser = get_name_browser(); // ЛИПКОЕ МЕНЮ
+// const header = document.querySelector(".main__header");
+// const sectionAboutTitle = document.getElementById("about__title");
+// window.addEventListener("scroll", function () {
+//   if (pageYOffset >= offset(sectionAboutTitle).top) {
+//     header.classList.add("main__header-sticky");
 //   } else {
-//     clearTimeout(dd);
+//     header.classList.remove("main__header-sticky");
 //   }
-// }, 500);
-// window.addEventListener("scroll");
-// function animCount(elem, delay) {
-//   let text = document.querySelector(".numbers__wrap_numeric").textContent;
-//   let number = 0;
-//   const animCountHeight = document.querySelector(".numbers__wrap_numeric")
-//     .offsetHeight;
-//   const animCountOffset = offset(
-//     document.querySelector(".numbers__wrap_numeric")
-//   ).top;
-//   const animCountStart = 4;
-//   let animCountPoint = window.innerHeight - animCountHeight / animCountStart;
-//   if (animCountHeight > window.innerHeight) {
-//     animCountPoint = window.innerHeight - window.innerHeight / animCountStart;
-//   }
-//   if (
-//     pageYOffset > animCountOffset - animCountPoint &&
-//     pageYOffset < animCountOffset + animCountHeight
-//   ) {
-//     setTimeout(function countTimer() {
-//       if (number < text) {
-//         number++;
-//         document.querySelector(".numbers__wrap_numeric").innerHTML = number;
-//         setTimeout(countTimer, 500);
-//       } else {
-//         clearTimeout(countTimer);
-//       }
-//     }, 500);
-//   }
-// }
+// });
 // ПАРАЛАКС ЭФФЕКТ ДЛЯ ЛОГОТИПА НА ГЛАВНОМ ЭКРАНЕ
 // $(document).ready(function () {
 //   var banner = $(".banner");
