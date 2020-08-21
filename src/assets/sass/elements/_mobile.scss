@@ -29,7 +29,7 @@
 
       .contacts__block_right {
         margin: 0 auto;
-        width: 400px;
+        min-width: 290px !important;
       }
 
       .contacts__info {
@@ -65,6 +65,19 @@
           max-width: 283px;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 565px) {
+  .about__subtitle {
+    br {
+      display: none;
+    }
+  }
+  .choose__number_text {
+    br {
+      display: none;
     }
   }
 }
@@ -201,7 +214,7 @@
 
       &_text {
         text-align: center;
-        width: 154px !important;
+        max-width: 220px !important;
       }
     }
   }

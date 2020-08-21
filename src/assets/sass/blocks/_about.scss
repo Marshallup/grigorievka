@@ -118,12 +118,23 @@
 
   @media screen and (max-width: 400px) {
     &__img {
-      width: 290px;
       height: 186px;
     }
 
     &__img_title {
       left: 51px !important;
+    }
+  }
+
+  @media screen and (max-width: 350px) {
+    &__img {
+      width: 100% !important;
+    }
+  }
+
+  @media screen and (max-width: 315px) {
+    &__img {
+      width: 103% !important;
     }
   }
 

@@ -199,6 +199,67 @@ function get_name_browser() {
 
 let browser = get_name_browser();
 
+// ПОДКЛЮЧЕНИЕ МАСКИ ДЛЯ ФОРМЫ ТЕЛЕФОНА
+
+//= components/jquery.maskedinput.min.js
+
+// НАСТРОЙКА МАСКИ ДЛЯ ТЕЛЕФОНА, ВАЛИДАЦИЯ ФОРМЫ, AJAX ОБРАБОТКА ФОРМЫ
+
+$(document).ready(function () {
+  $("#gr-form").validate({
+    submitHandler: function (form) {
+      //Change
+      $(".contacts__right_button").prop("disabled", true);
+      $(".modal").addClass("modal-flex");
+      setTimeout(function () {
+        $(".modal").addClass("modal-visible");
+      }, 100);
+      var th = $(form);
+      $.ajax({
+        type: "POST",
+        url: "mail.php", //Change
+        data: th.serialize(),
+      }).done(function () {
+        setTimeout(function () {
+          // Done Functions
+          $(".modal").removeClass("modal-visible");
+          setTimeout(function () {
+            $(".modal").removeClass("modal-flex");
+          }, 700);
+          th.trigger("reset");
+        }, 2000);
+      });
+      return false;
+    },
+    rules: {
+      name: {
+        required: true,
+        minlength: 2,
+      },
+      message: {
+        required: true,
+        minlength: 4,
+      },
+    },
+    messages: {
+      name: {
+        required: "Поле 'Имя' обязательно к заполнению",
+        minlength: "Введите не менее 2-х символов в поле 'Имя'",
+      },
+      email: {
+        required: "Поле 'Email' обязательно к заполнению",
+        email: "Необходим формат адреса email",
+      },
+      phone: "Поле 'Телефон' обязательно к заполнению",
+      message: {
+        required: "Поле 'Сообщение' обязательно к заполнению",
+        minlength: "Введите не менее 4-х символов в поле 'Сообщение'",
+      },
+    },
+  });
+  $("#phone-form").mask("+7(999) 999-99-99");
+});
+
 // ЛИПКОЕ МЕНЮ
 // const header = document.querySelector(".main__header");
 // const sectionAboutTitle = document.getElementById("about__title");

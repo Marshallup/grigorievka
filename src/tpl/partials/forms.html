@@ -53,37 +53,54 @@
             Мы с удовольствием ответим <br />
             на любой ваш вопрос
           </div>
-          <form name="call Back" class="contacts__form" method="POST">
-            <input name="check" value="Верхняя форма" type="hidden" />
-            <input
-              class="contacts__form_name"
-              name="Имя"
-              type="text"
-              placeholder="Ваше имя"
-            />
-            <input
-              class="contacts__form_phone"
-              name="Телефон"
-              type="text"
-              placeholder="Ваш номер телефона"
-            />
-            <input
-              class="contacts__form_email"
-              name="Количество"
-              type="text"
-              placeholder="Ваш  e-mail"
-            />
-            <textarea
-              name="message"
-              placeholder="Введите сообщение"
-              class="contacts__form_message"
-            ></textarea>
+          <form
+            id="gr-form"
+            name="call Back"
+            class="callBack-form"
+            method="POST"
+          >
+            <div class="contacts__form">
+              <input name="up" value="Форма связи" type="hidden" />
+              <input
+                class="contacts__form_name"
+                name="name"
+                type="text"
+                placeholder="Ваше имя"
+                required
+              />
+              <input
+                id="phone-form"
+                class="contacts__form_phone"
+                name="phone"
+                type="tel"
+                placeholder="Ваш номер телефона"
+                required
+              />
+              <input
+                class="contacts__form_email"
+                name="email"
+                type="email"
+                placeholder="Ваш  e-mail"
+                required
+              />
+              <textarea
+                name="message"
+                placeholder="Введите сообщение"
+                class="contacts__form_message"
+                required
+              ></textarea>
+            </div>
+            <div class="contacts__button_wrap">
+              <button type="submit" class="contacts__right_button gr__button">
+                Задать вопрос
+              </button>
+            </div>
           </form>
-          <div class="contacts__button_wrap">
-            <button class="contacts__right_button gr__button">
+          <!-- <div class="contacts__button_wrap">
+            <button type="submit" lass="contacts__right_button gr__button">
               Задать вопрос
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

@@ -4,13 +4,56 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
+          rel="shortcut icon"
+          href="assets/img/icons/preloader/flower.svg"
+          type="image/x-icon"
+        />
+        <link
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;800&display=swap"
           rel="stylesheet"
         />
         <link rel="stylesheet" href="assets/libraries/normalize.css" />
         <link rel="stylesheet" href="assets/libraries/bootstrap-grid.min.css" />
         <link rel="stylesheet" href="assets/css/style.min.css" />
-        <title>HomePage</title>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript">
+          (function (m, e, t, r, i, k, a) {
+            m[i] =
+              m[i] ||
+              function () {
+                (m[i].a = m[i].a || []).push(arguments);
+              };
+            m[i].l = 1 * new Date();
+            (k = e.createElement(t)),
+              (a = e.getElementsByTagName(t)[0]),
+              (k.async = 1),
+              (k.src = r),
+              a.parentNode.insertBefore(k, a);
+          })(
+            window,
+            document,
+            "script",
+            "https://mc.yandex.ru/metrika/tag.js",
+            "ym"
+          );
+    
+          ym(66622390, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+          });
+        </script>
+        <noscript
+          ><div>
+            <img
+              src="https://mc.yandex.ru/watch/66622390"
+              style="position: absolute; left: -9999px;"
+              alt=""
+            /></div
+        ></noscript>
+        <!-- /Yandex.Metrika counter -->
+        <meta name="description" content="«Григорьевка» зерно Алтая" />
+        <title>СПК &quot;Григорьевка&quot;</title>
       </head>
     </html>
 <body class="no-scroll">
@@ -138,7 +181,7 @@
                 <div class="choose__number_title">Качество</div>
                 <div class="choose__number_text">
                   Строгий контроль на всех этапах: <br />
-                  от производства до реализации.
+                  от производства до реализации
                 </div>
               </div>
             </div>
@@ -438,37 +481,54 @@
                 Мы с удовольствием ответим <br />
                 на любой ваш вопрос
               </div>
-              <form name="call Back" class="contacts__form" method="POST">
-                <input name="check" value="Верхняя форма" type="hidden" />
-                <input
-                  class="contacts__form_name"
-                  name="Имя"
-                  type="text"
-                  placeholder="Ваше имя"
-                />
-                <input
-                  class="contacts__form_phone"
-                  name="Телефон"
-                  type="text"
-                  placeholder="Ваш номер телефона"
-                />
-                <input
-                  class="contacts__form_email"
-                  name="Количество"
-                  type="text"
-                  placeholder="Ваш  e-mail"
-                />
-                <textarea
-                  name="message"
-                  placeholder="Введите сообщение"
-                  class="contacts__form_message"
-                ></textarea>
+              <form
+                id="gr-form"
+                name="call Back"
+                class="callBack-form"
+                method="POST"
+              >
+                <div class="contacts__form">
+                  <input name="up" value="Форма связи" type="hidden" />
+                  <input
+                    class="contacts__form_name"
+                    name="name"
+                    type="text"
+                    placeholder="Ваше имя"
+                    required
+                  />
+                  <input
+                    id="phone-form"
+                    class="contacts__form_phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="Ваш номер телефона"
+                    required
+                  />
+                  <input
+                    class="contacts__form_email"
+                    name="email"
+                    type="email"
+                    placeholder="Ваш  e-mail"
+                    required
+                  />
+                  <textarea
+                    name="message"
+                    placeholder="Введите сообщение"
+                    class="contacts__form_message"
+                    required
+                  ></textarea>
+                </div>
+                <div class="contacts__button_wrap">
+                  <button type="submit" class="contacts__right_button gr__button">
+                    Задать вопрос
+                  </button>
+                </div>
               </form>
-              <div class="contacts__button_wrap">
-                <button class="contacts__right_button gr__button">
+              <!-- <div class="contacts__button_wrap">
+                <button type="submit" lass="contacts__right_button gr__button">
                   Задать вопрос
                 </button>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -504,20 +564,32 @@
             </nav>
           </div>
           <div class="col-lg-2">
-            <a href="tel:+79500245116" class="phone footer__phone hvr-buzz-out"
+            <a href="tel:+79237494167" class="phone footer__phone hvr-buzz-out"
               ><div class="phone__img footer__phone_img">
                 <img src="assets/img/icons/phone__main.png" alt="phone" />
               </div>
               <span class="phone__number footer__phone_number"
-                >+7 (950)-024-51-16</span
+                >+7 (923) 749-41-67</span
               ></a
             >
           </div>
         </div>
       </div>
     </section>
+<div class="modal">
+  <div class="modal__wrap">
+    <div class="modal__sign">“
+    </div>
+    <div class="modal__text">
+      Спасибо! В ближайшее время мы 
+      ознакомимся с вопросом <br>
+      и дадим Вам обратную связь.
+    </div>
+  </div>
+</div>
 <script src="assets/libraries/jquery.min.js"></script>
 <script src="assets/libraries/slick.min.js"></script>
+<script src="assets/libraries/jquery.validate.min.js"></script>
 <script src="assets/js/main.min.js"></script>
 </body>
 </html>

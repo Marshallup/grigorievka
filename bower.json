@@ -9,7 +9,8 @@
     "normalize.css": "^8.0.1",
     "jquery": "^3.4.1",
     "bootstrap": "^4.5.2",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "jquery-validation": "^1.19.2"
   },
   "overrides": {
     "jquery": {
@@ -20,6 +21,9 @@
     },
     "slick-carousel": {
       "main": "slick/slick.min.js"
+    },
+    "jquery-validation": {
+      "main": "dist/jquery.validate.min.js"
     }
   }
 }

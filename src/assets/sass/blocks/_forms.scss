@@ -96,7 +96,7 @@
 
     &__block_right {
       position: relative;
-      height: 712px;
+      min-height: 662px;
       background: #f3e7d6;
       box-shadow: 10px 4px 30px rgba(77, 52, 30, 0.25);
       border-radius: 10px;
@@ -154,8 +154,16 @@
         opacity: 0.7;
         outline: none;
         font-size: 14px;
-        color: rgba($color: $baseTextColor, $alpha: 0.3);
+        // color: rgba($color: $baseTextColor, $alpha: 0.3);
+        color: $baseTextColor;
         background: #e8d5ba;
+      }
+
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus,
+      input:-webkit-autofill:active {
+        transition: background-color 5000s ease-in-out 0s;
       }
 
       textarea::placeholder,
@@ -238,6 +246,26 @@
     @media screen and (max-width: 465px) {
       &__form {
         margin-top: 25px;
+      }
+    }
+  }
+
+  .callBack-form {
+    label {
+      color: #3f2711;
+    }
+
+    @media screen and (max-width: 991px) {
+      label {
+        display: block;
+        text-align: center;
+      }
+    }
+
+    @media screen and (max-width: 398px) {
+      label {
+        margin: 0 auto;
+        width: 235px;
       }
     }
   }

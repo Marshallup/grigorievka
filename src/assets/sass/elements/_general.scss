@@ -1,4 +1,3 @@
-// html,
 body {
   position: relative;
   overflow-x: hidden;
@@ -65,15 +64,6 @@ a {
   transform: translate(0, 0);
   opacity: 1;
 }
-
-// .body_hide {
-//   opacity: 0;
-//   transition: 1s opacity ease-in-out;
-// }
-
-// .body_visible {
-//   opacity: 1 !important;
-// }
 
 .preloader__wrap {
   position: fixed;
@@ -147,6 +137,81 @@ a {
 .preloader__img_show {
   opacity: 1 !important;
 }
+
+// МОДАЛЬНОЕ ОКНО
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 735px;
+  height: 265px;
+  z-index: 10000;
+  background: #ede1ce;
+  box-shadow: 9px 9px 30px rgba(192, 173, 144, 0.49), -9px -9px 60px #e0d2bc;
+  border-radius: 15px;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+
+  &__wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__sign {
+    margin-right: 20px;
+    height: 143px;
+    font-family: Helvetica;
+    font-size: 150px;
+    color: #dbcfbb;
+  }
+
+  &__text {
+    text-align: center;
+    width: 360px;
+    font-size: 20px;
+    line-height: 139.9%;
+    color: #3f2711;
+  }
+
+  @media screen and (max-width: 736px) {
+    width: 285px;
+    height: 202px;
+
+    &__wrap {
+      margin-top: -25px;
+      flex-direction: column;
+    }
+
+    &__sign {
+      margin-right: 0;
+      font-size: 100px;
+      height: 50px;
+    }
+    &__text {
+      margin-top: 8px;
+      width: 241px;
+      font-size: 15px;
+    }
+  }
+}
+
+.modal-visible {
+  opacity: 1;
+}
+.modal-flex {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+// .modal,
+// .modal__wrap {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
 
 // АНИМАЦИЯ ТЕЛЕФОННОЙ ТРУБКИ
 
